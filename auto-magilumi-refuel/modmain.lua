@@ -17,7 +17,26 @@ DebugLog("Config loaded - Threshold:", REFUEL_THRESHOLD, "Interval:", CHECK_INTE
 local EQUIPSLOTS, ACTIONS, BufferedAction
 
 local function AutoRefuelYellowAmulet(player)
+    -- Check if EQUIPSLOTS.BODY exists (might be modified by other mods)
+    if not EQUIPSLOTS or not EQUIPSLOTS.BODY then
+        DebugLog("EQUIPSLOTS.BODY not available")
+        return
+    end
+    
     local amulet = player.components.inventory:GetEquippedItem(EQUIPSLOTS.BODY)
+    
+    -- Check if there's actually an item equipped in the body slot
+    if not amulet then
+        DebugLog("No item equipped in body slot")
+        return
+    end
+    
+    -- Check if the equipped item is actually a magiluminescence
+    if amulet.prefab ~= "yellowamulet" then
+        DebugLog("Equipped item is not a magiluminescence:", amulet.prefab)
+        return
+    end
+    
     DebugLog("Equipped item:", amulet.prefab)
 
     -- Check for fueled component in different ways
