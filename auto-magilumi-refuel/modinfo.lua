@@ -1,5 +1,5 @@
 name = "Auto Magiluminescence Re-fuel"
-description = "Automatically re-fuels Magiluminescence when it reaches 50% durability using Nightmare Fuel from inventory"
+description = "Automatically re-fuels Magiluminescence using fuel from inventory"
 author = "Pooffloof"
 version = "1.0.0"
 
