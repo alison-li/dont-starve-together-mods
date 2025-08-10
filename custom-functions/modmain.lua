@@ -4,7 +4,7 @@ clean = function(prefab)
         return
     end
     
-    for k, v in pairs(Ents) do
+    for k, v in pairs(GLOBAL.Ents) do
         if v.prefab == prefab and 
            v.components and 
            v.components.inventoryitem and 
